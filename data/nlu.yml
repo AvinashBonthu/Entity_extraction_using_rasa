@@ -1,0 +1,252 @@
+version: "3.1"
+
+nlu:
+- intent: greet
+  examples: |
+    - hey
+    - hello
+    - hi
+    - hello there
+    - good morning
+    - good evening
+    - moin
+    - hey there
+    - let's go
+    - hey dude
+    - goodmorning
+    - goodevening
+    - good afternoon
+
+- intent: goodbye
+  examples: |
+    - cu
+    - good by
+    - cee you later
+    - good night
+    - bye
+    - goodbye
+    - have a nice day
+    - see you around
+    - bye bye
+    - see you later
+
+- intent: affirm
+  examples: |
+    - yes
+    - y
+    - indeed
+    - of course
+    - that sounds good
+    - correct
+
+- intent: deny
+  examples: |
+    - no
+    - n
+    - never
+    - I don't think so
+    - don't like that
+    - no way
+    - not really
+
+
+- intent: acted_in
+  examples: |
+    - [actors of]{"entity": "edge", "value":"acted_in"} [Avengers]{"entity":"Movie"}
+    - [co-stars]{"entity": "edge", "value":"acted_in"} of movie [Avengers]{"entity":"Movie"}
+    - who [acted in]{"entity": "edge", "value":"acted_in"} [Avengers]{"entity":"Movie"}
+    - who [acted in]{"entity": "edge", "value":"acted_in"} movie [Avengers]{"entity":"Movie"}
+    - who was the [actor in]{"entity": "edge", "value":"acted_in"} [Avengers]{"entity":"Movie"}
+    - who were the [cast of]{"entity": "edge", "value":"acted_in"} [Avengers]{"entity":"Movie"}
+    - in which movie did [Rowan Atkinson]{"entity": "Person"} [act]{"entity": "edge", "value":"acted_in"}
+    - in which movie [Rowan Atkinson]{"entity": "Person"} [acted]{"entity": "edge", "value":"acted_in"}
+    - movies [Rowan Atkinson]{"entity": "Person"} [acted in]{"entity": "edge", "value":"acted_in"} 
+    - [Rowan Atkinson]{"entity": "Person"} [acted in]{"entity": "edge", "value":"acted_in"}
+    - [Rowan Atkinson]{"entity": "Person"}
+    - movies [Rowan Atkinson]{"entity": "Person"} [acted in]{"entity": "edge", "value":"acted_in"}
+    - in which movie did [Rowan Atkinson]{"entity":"Person"} [act]{"entity": "edge", "value":"acted_in"}
+    - who [acted in]{"entity": "edge", "value":"acted_in"} the movie [Avengers]{"entity":"Movie"}.
+    - who [acted in]{"entity": "edge", "value":"acted_in"} the movie [avengers]{"entity":"Movie"}.
+
+- intent: directed_by
+  examples: |
+    - who [directed]{"entity": "edge", "value":"directed"} [Avengers]{"entity":"Movie"}
+    - [Director of]{"entity": "edge", "value":"directed"} [Avengers]{"entity":"Movie"}
+    - [Avengers]{"entity":"Movie"} is [directed by]{"entity": "edge", "value":"directed"}
+    - who is the [director of]{"entity": "edge", "value":"directed"} [Avengers]{"entity":"Movie"}
+    - [Avengers]{"entity":"Movie"} is [directed by]{"entity": "edge", "value":"directed"}
+    - movies [directed by]{"entity": "edge", "value":"directed"} [Christopher Nolan]{"entity": "Person"}
+    - movies in which [director]{"entity": "edge", "value":"directed"} is [Christopher Nolan]{"entity": "Person"}
+    - who [directed]{"entity": "edge", "value":"directed"} the movie [Avengers]{"entity":"Movie"}
+    - name of the [director of]{"entity": "edge", "value":"directed"} [Avengers]{"entity":"Movie"}
+    - what is the name of [Avengers]{"entity":"Movie"} movie [director]{"entity": "edge", "value":"directed"}
+    - [Christopher Nolan]{"entity": "Person"}
+    - movies by [christopher Nolan]{"entity": "Person"}
+    - movies [directed by]{"entity": "edge", "value":"directed"} [Christopher Nolan]{"entity": "Person"}.
+    - movies [directed by]{"entity": "edge", "value":"directed"} [christopher nolan]{"entity": "Person"}.
+    - [director of]{"entity": "edge", "value":"directed"} [Avengers]{"entity":"Movie"}
+    - who is the [director of]{"entity": "edge", "value":"directed"} [Notebook]{"entity":"Movie"}
+    - who is the [director of]{"entity": "edge", "value":"directed"} [notebook]{"entity":"Movie"}
+
+- intent: produced_by
+  examples: |
+    - who [produced]{"entity": "edge", "value":"produced"} [Avengers]{"entity":"Movie"}
+    - [producer of]{"entity": "edge", "value":"produced"} [Avengers]{"entity":"Movie"}
+    - [Avengers]{"entity":"Movie"} is [produced by]{"entity": "edge", "value":"produced"}
+    - who is the [producer of]{"entity": "edge", "value":"produced"} [Avengers]{"entity":"Movie"}
+    - [Avengers]{"entity":"Movie"} is [produced by]{"entity": "edge", "value":"produced"}
+    - movies [produced by]{"entity": "edge", "value":"produced"} [Christopher Nolan]{"entity": "Person"}
+    - movies in which [producer]{"entity": "edge", "value":"produced"} is [Christopher Nolan]{"entity": "Person"}
+    - who [produced]{"entity": "edge", "value":"produced"} the movie [Avengers]{"entity":"Movie"}
+    - name of the [producer of]{"entity": "edge", "value":"produced"} [Avengers]{"entity":"Movie"}
+    - what is the name of [Avengers]{"entity":"Movie"} movie [producer]{"entity": "edge", "value":"produced"}
+    - [Christopher Nolan]{"entity": "Person"}
+    - movies by [christopher Nolan]{"entity": "Person"}
+    - movies [produced by]{"entity": "edge", "value":"produced"} [Joel Silver]{"entity": "Person"}.
+    - what are the movies that are [produced by]{"entity": "edge", "value":"produced"} [Joel Silver]{"entity": "Person"}
+    - who [produced]{"entity": "edge", "value":"produced"} [avengers]{"entity": "Movie"} movie
+    - who [produced]{"entity": "edge", "value":"produced"} [Avengers]{"entity": "Movie"} movie
+    - who [produced]{"entity": "edge", "value":"produced"} [Notebook]{"entity": "Movie"} movie
+    - who [produced]{"entity": "edge", "value":"produced"} [notebook]{"entity": "Movie"} movie
+    - who is the [producer of]{"entity": "edge", "value":"produced"} the movie [Avengers]{"entity": "Movie"}
+    - who is the [producer of]{"entity": "edge", "value":"produced"} the movie [avengers]{"entity": "Movie"}
+
+- intent: reviewed
+  examples: |
+    - who [reviewed]{"entity": "edge", "value":"reviewed"} [Avengers]{"entity":"Movie"}
+    - [reviewers of]{"entity": "edge", "value":"reviewed"} [Avengers]{"entity":"Movie"}
+    - [Avengers]{"entity":"Movie"} is [reviewed by]{"entity": "edge", "value":"reviewed"}
+    - [Avengers]{"entity":"Movie"} was [reviewed by]{"entity": "edge", "value":"reviewed"}
+    - who [reviewed]{"entity": "edge", "value":"reviewed"} the movie [Avengers]{"entity":"Movie"}
+    - who is the [reviewer of]{"entity": "edge", "value":"reviewed"} [Avengers]{"entity":"Movie"}
+    - [reviewer of]{"entity": "edge", "value":"reviewed"} [Avengers]{"entity":"Movie"}
+    - movies [reviewed by]{"entity": "edge", "value":"reviewed"} [James Thompson]{"entity": "Person"}
+    - who [reviewed]{"entity": "edge", "value":"reviewed"} the movie [Avengers]{"entity": "Movie"}
+    - who is the [reviewer of]{"entity": "edge", "value":"reviewed"} the movie [Avengers]{"entity": "Movie"}
+    - who [reviewed]{"entity": "edge", "value":"reviewed"} the movie [avengers]{"entity": "Movie"}
+
+- intent: follows
+  examples: |
+    - who [follows]{"entity": "edge", "value":"follows"} [Tatman]{"entity": "Person"}
+    - [Tatman]{"entity": "Person"} [follows]{"entity": "edge", "value":"reviewed"}
+    - [Tatman]{"entity": "Person"} is [followed by]{"entity": "edge", "value":"follows"}
+    - [Tatman]{"entity": "Person"} [followed by]{"entity": "edge", "value":"follows"}
+    - [followers of]{"entity": "edge", "value":"follows"} [Tatman]{"entity": "Person"}
+    - [Angela hope]{"entity": "Person"} is [followed by]{"entity": "edge", "value":"follows"}
+    - [Tatman]{"entity": "Person"} is [followed by]{"entity": "edge", "value":"follows"}
+    - who [follows]{"entity": "edge", "value":"reviewed"} [Angela Hope]{"entity":"Person"}
+    - who [follows]{"entity": "edge", "value":"reviewed"} [Tatman]{"entity":"Person"}
+
+- intent: wrote
+  examples: |
+    - who [wrote]{"entity": "edge", "value":"wrote"} [Avengers]{"entity":"Movie"}
+    - [writer of]{"entity": "edge", "value":"wrote"} [Avengers]{"entity":"Movie"}
+    - [writers of]{"entity": "edge", "value":"wrote"} [Avengers]{"entity":"Movie"}
+    - [Avengers]{"entity":"Movie"} was [written by]{"entity": "edge", "value":"wrote"}
+    - [Avengers]{"entity":"Movie"} [written by]{"entity": "edge", "value":"wrote"}
+    - who is the [writer of]{"entity": "edge", "value":"wrote"} [Avengers]{"entity":"Movie"}
+    - movies [written by]{"entity": "edge", "value":"wrote"} [Christopher Nolan]{"entity":"Person"}
+    - movie [written by]{"entity": "edge", "value":"wrote"} [Christopher Nolan]{"entity":"Person"}
+    - [Christopher Nolan]{"entity":"Person"} [wrote]{"entity": "edge", "value":"wrote"}
+    - movies [written by]{"entity": "edge", "value":"wrote"} [Andy Wachowski]{"entity": "Person"}
+    - movies [written by]{"entity": "edge", "value":"wrote"} [Tatman]{"entity": "Person"}
+    - [writer of]{"entity": "edge", "value":"wrote"} movie [Avengers]{"entity": "Movie"}
+    - [writer of]{"entity": "edge", "value":"wrote"} movie [avengers]{"entity": "Movie"}
+    - who is the [writer of]{"entity": "edge", "value":"wrote"} the movie [Avengers]{"entity": "Movie"}
+    - who is the [writer of]{"entity": "edge", "value":"wrote"} the movie [avengers]{"entity": "Movie"}
+
+- intent: other_properties
+  examples: |
+    - Actors born in [1980]{"entity": "Born"}
+    - Actors whose date of birth is [1980]{"entity": "Born"}
+    - which actor is born in [1980]{"entity": "Born"}
+    - actors whose dob is [1980]{"entity": "Born"}
+    - actors with dob [1980]{"entity": "Born"}
+    
+    - movies with rating [45]{"entity": "Rating"}
+    - movies whose rating is greater than [45]{"entity": "Rating"}
+    - movies which contains rating below [45]{"entity": "Rating"}
+    
+    - movies released before [1980]{"entity": "Released"}
+    - movies released after [1980]{"entity": "Released"}
+    - movies released in [1980]{"entity": "Released"}
+    - movies before [1980]{"entity": "Released"}
+    - movies after [1980]{"entity": "Released"}
+    - movies in [1980]{"entity": "Released"}
+
+
+- intent: bot_challenge
+  examples: |
+    - are you a bot?
+    - are you a human?
+    - am I talking to a bot?
+    - am I talking to a human?
+
+- lookup: Person
+  examples: |
+    - Keanu Reeves
+    - Carrie-Anne Moss
+    - Laurence Fishburne
+    - Hugo Weaving
+    - Andy Wachowski
+    - Lana Wachowski
+    - Joel Silver
+    - Emil Eifrem
+    - Charlize Theron
+    - Al Pacino
+    - Taylor Hackford
+    - Tom Cruise
+    - Jack Nicholson
+    - Demi Moore
+    - Kevin Bacon
+    - Kiefer Sutherland
+    - Noah Wyle
+    - Cuba Gooding Jr.
+    - Kevin Pollak
+    - J.T. Walsh
+    - James Marshall
+    - Christopher Guest
+    - Rob Reiner
+    - Aaron Sorkin
+    - Kelly McGillis
+
+- regex: Rating
+  examples: |
+    - \d{2,3}
+- regex: Released
+  examples: |
+    - \d{4}
+- regex: Born
+  examples: |
+    - \d{4}
+  
+
+- lookup: Movie
+  examples: |
+    - The Matrix
+    - The Matrix Reloaded
+    - The Matrix Revolutions
+    - The Devil's Advocate
+    - A Few Good Men
+    - Top Gun
+    - Jerry Maguire
+    - Stand By Me
+    - As Good as It Gets
+    - What Dreams May Come
+    - Snow Falling on Cedars
+    - You've Got Mail
+    - Sleepless in Seattle
+    - Joe Versus the Volcano
+    - When Harry Met Sally
+    - That Thing You Do
+    - The Replacements
+    - RescueDawn
+    - The Birdcage
+    - Unforgiven
+    - Johnny Mnemonic
+    - Cloud Atlas
+    - The Da Vinci Code
+    - V for Vendetta
+    - Speed Racer
+
+

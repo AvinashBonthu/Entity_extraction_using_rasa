@@ -1,0 +1,44 @@
+version: "3.1"
+
+stories:
+
+- story: happy path
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: acted_in
+    entities:
+    - Person: "Robert Downey Jr."
+    - edge: "acted_in"
+    - Movie: "Spiderman"
+  - intent: directed_by
+    entities:
+    - Person: "Robert Downey Jr."
+    - edge: "directed"
+    - Movie: "Spiderman"
+  - intent: produced_by
+    entities:
+    - Person: "Robert Downey Jr."
+    - edge: "produced"
+    - Movie: "Spiderman"
+  - intent: reviewed
+    entities:
+    - Person: "Robert Downey Jr."
+    - edge: "reviewed"
+    - Movie: "Spiderman"
+  - intent: follows
+    entities:
+    - Person: "Robert Downey Jr."
+    - edge: "follows"
+  - intent: wrote
+    entities:
+    - Person: "Robert Downey Jr."
+    - edge: "wrote"
+    - Movie: "Spiderman"
+  - intent: other_properties
+    entities:
+    - Born: "1980"
+    - Rating: "45"
+    - Released: "1975"
+
+  - action: utter_happy

@@ -1,0 +1,143 @@
+# The config recipe.
+# https://rasa.com/docs/rasa/model-configuration/
+recipe: default.v1
+
+# Configuration for Rasa NLU.
+# https://rasa.com/docs/rasa/nlu/components/
+language: en
+
+pipeline:
+# # No configuration for the NLU pipeline was provided. The following default pipeline was used to train your model.
+# # If you'd like to customize it, uncomment and adjust the pipeline.
+# # See https://rasa.com/docs/rasa/tuning-your-model for more information.
+  - name: SpacyNLP
+    model: "en_core_web_md"
+  # - name: "MitieNLP"
+  # # language model to load
+  #   model: "data/total_word_feature_extractor.dat"
+  # - name: HFTransformersNLP
+  #   # Name of the language model to use
+  #   model_name: "gpt2"
+  #   # Pre-Trained weights to be loaded
+  #   model_weights: "gpt2"
+
+  #   # An optional path to a specific directory to download and cache the pre-trained model weights.
+  #   # The `default` cache_dir is the same as https://huggingface.co/transformers/serialization.html#cache-directory .
+  #   cache_dir: null
+  # when retrieving word vectors, this will decide if the casing
+  # of the word is relevant. E.g. `hello` and `Hello` will
+  # retrieve the same vector, if set to `False`. For some
+  # applications and models it makes sense to differentiate
+  # between these two words, therefore setting this to `True`.
+    # case_sensitive: False
+  # - name: WhitespaceTokenizer
+  - name: SpacyTokenizer
+    "intent_tokenization_flag": False
+  # Symbol on which intent should be split
+    "intent_split_symbol": " "
+  # Regular expression to detect tokens
+    "token_pattern": None
+  - name: "SpacyFeaturizer"
+  - name: RegexFeaturizer
+  - name: LexicalSyntacticFeaturizer
+  - name: CountVectorsFeaturizer
+  - name: CountVectorsFeaturizer
+    analyzer: char_wb
+    min_ngram: 1
+    max_ngram: 4
+  - name: LanguageModelFeaturizer
+    # Name of the language model to use
+    model_name: "gpt2"
+    # Pre-Trained weights to be loaded
+    model_weights: "gpt2"
+
+    # An optional path to a directory from which
+    # to load pre-trained model weights.
+    # If the requested model is not found in the
+    # directory, it will be downloaded and
+    # cached in this directory for future use.
+    # The default value of `cache_dir` can be
+    # set using the environment variable
+    # `TRANSFORMERS_CACHE`, as per the
+    # Transformers library.
+    cache_dir: null
+  # - name: FallbackClassifier
+  #   threshold: 0.3
+  #   ambiguity_threshold: 0.1
+
+  - name: DIETClassifier
+    epochs: 200
+    BILOU_flag: true
+    constrain_similarities: true
+  - name: "SpacyEntityExtractor"
+  # dimensions to extract
+    dimensions: ["PERSON", "LOC", "ORG", "PRODUCT", "GPE"]
+  # - name: "MitieEntityExtractor"
+  - name: RegexEntityExtractor
+      # text will be processed with case insensitive as default
+    case_sensitive: False
+      # use lookup tables to extract entities
+    use_lookup_tables: True
+      # use regexes to extract entities
+    use_regexes: True
+      # use match word boundaries for lookup table
+    "use_word_boundaries": True
+  - name: EntitySynonymMapper
+  - name: "CRFEntityExtractor"
+    # BILOU_flag determines whether to use BILOU tagging or not.
+    "BILOU_flag": True
+    # features to extract in the sliding window
+    # "features": [
+    #   ["low", "title", "upper"],
+    #   [
+    #     "bias",
+    #     "low",
+    #     "prefix5",
+    #     "prefix2",
+    #     "suffix5",
+    #     "suffix3",
+    #     "suffix2",
+    #     "upper",
+    #     "title",
+    #     "digit",
+    #     "pattern",
+    #     "text_dense_features"
+    #   ],
+    #   ["low", "title", "upper"],
+    # ]
+    # # The maximum number of iterations for optimization algorithms.
+    # "max_iterations": 50
+    # # weight of the L1 regularization
+    # "L1_c": 0.1
+    # # weight of the L2 regularization
+    # "L2_c": 0.1
+    # # Name of dense featurizers to use.
+    # # If list is empty all available dense features are used.
+    # "featurizers": []
+    # # Indicated whether a list of extracted entities should be split into individual entities for a given entity type
+    # "split_entities_by_comma":
+    #     address: False
+    #     email: True
+  - name: "DucklingEntityExtractor"
+  # url of the running duckling server
+    url: "http://localhost:8000"
+  # dimensions to extract
+    dimensions: ["time", "number", "amount-of-money", "distance"]
+  - name: ResponseSelector
+    epochs: 200
+    constrain_similarities: true
+# Configuration for Rasa Core.
+# https://rasa.com/docs/rasa/core/policies/
+policies:
+# # No configuration for policies was provided. The following default policies were used to train your model.
+# # If you'd like to customize them, uncomment and adjust the policies.
+# # See https://rasa.com/docs/rasa/policies for more information.
+  - name: MemoizationPolicy
+  - name: RulePolicy
+  - name: UnexpecTEDIntentPolicy
+    max_history: 5
+    epochs: 200
+  - name: TEDPolicy
+    max_history: 5
+    epochs: 200
+    constrain_similarities: true

@@ -1,0 +1,22 @@
+[
+  {
+    "name": "Born",
+    "pattern": "\\d{4}"
+  },
+  {
+    "name": "Rating",
+    "pattern": "\\d{2,3}"
+  },
+  {
+    "name": "Released",
+    "pattern": "\\d{4}"
+  },
+  {
+    "name": "Person",
+    "pattern": "(\\bKeanu\\ Reeves\\b|\\bCarrie\\-Anne\\ Moss\\b|\\bLaurence\\ Fishburne\\b|\\bHugo\\ Weaving\\b|\\bAndy\\ Wachowski\\b|\\bLana\\ Wachowski\\b|\\bJoel\\ Silver\\b|\\bEmil\\ Eifrem\\b|\\bCharlize\\ Theron\\b|\\bAl\\ Pacino\\b|\\bTaylor\\ Hackford\\b|\\bTom\\ Cruise\\b|\\bJack\\ Nicholson\\b|\\bDemi\\ Moore\\b|\\bKevin\\ Bacon\\b|\\bKiefer\\ Sutherland\\b|\\bNoah\\ Wyle\\b|\\bCuba\\ Gooding\\ Jr\\.\\b|\\bKevin\\ Pollak\\b|\\bJ\\.T\\.\\ Walsh\\b|\\bJames\\ Marshall\\b|\\bChristopher\\ Guest\\b|\\bRob\\ Reiner\\b|\\bAaron\\ Sorkin\\b|\\bKelly\\ McGillis\\b)"
+  },
+  {
+    "name": "Movie",
+    "pattern": "(\\bThe\\ Matrix\\b|\\bThe\\ Matrix\\ Reloaded\\b|\\bThe\\ Matrix\\ Revolutions\\b|\\bThe\\ Devil's\\ Advocate\\b|\\bA\\ Few\\ Good\\ Men\\b|\\bTop\\ Gun\\b|\\bJerry\\ Maguire\\b|\\bStand\\ By\\ Me\\b|\\bAs\\ Good\\ as\\ It\\ Gets\\b|\\bWhat\\ Dreams\\ May\\ Come\\b|\\bSnow\\ Falling\\ on\\ Cedars\\b|\\bYou've\\ Got\\ Mail\\b|\\bSleepless\\ in\\ Seattle\\b|\\bJoe\\ Versus\\ the\\ Volcano\\b|\\bWhen\\ Harry\\ Met\\ Sally\\b|\\bThat\\ Thing\\ You\\ Do\\b|\\bThe\\ Replacements\\b|\\bRescueDawn\\b|\\bThe\\ Birdcage\\b|\\bUnforgiven\\b|\\bJohnny\\ Mnemonic\\b|\\bCloud\\ Atlas\\b|\\bThe\\ Da\\ Vinci\\ Code\\b|\\bV\\ for\\ Vendetta\\b|\\bSpeed\\ Racer\\b)"
+  }
+]

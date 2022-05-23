@@ -1,0 +1,76 @@
+version: "3.1"
+
+intents:
+  - greet
+  - goodbye
+  - affirm
+  - deny
+  - acted_in:
+      use_entities:
+        - Person
+        - edge
+        - Movie
+  - directed_by:
+      use_entities:
+        - Person
+        - edge
+        - Movie
+  - produced_by:
+      use_entities:
+        - Person
+        - edge
+        - Movie
+  - reviewed:
+      use_entities:
+        - Person
+        - edge
+        - Movie
+  - follows:
+      use_entities:
+        - Person
+        - edge
+  - wrote:
+      use_entities:
+        - Person
+        - edge
+        - Movie
+  - other_properties:
+      use_entities:
+        - Born
+        - Rating
+        - Released
+  - mood_great
+  - mood_unhappy
+  - bot_challenge
+
+entities:
+  - Born
+  - Person
+  - Rating
+  - Released
+  - Movie
+  - edge
+
+responses:
+  utter_greet:
+  - text: "Hey! What information do you want??"
+
+  utter_cheer_up:
+  - text: "Here is something to cheer you up:"
+    image: "https://i.imgur.com/nGF1K8f.jpg"
+
+  utter_did_that_help:
+  - text: "Did that help you?"
+
+  utter_happy:
+  - text: "Great, carry on!"
+
+  utter_goodbye:
+  - text: "Bye"
+
+  utter_iamabot:
+  - text: "I am a bot, powered by Rasa."
+
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true
