@@ -12,24 +12,6 @@ pipeline:
 # # See https://rasa.com/docs/rasa/tuning-your-model for more information.
   - name: SpacyNLP
     model: "en_core_web_md"
-  # - name: "MitieNLP"
-  # # language model to load
-  #   model: "data/total_word_feature_extractor.dat"
-  # - name: HFTransformersNLP
-  #   # Name of the language model to use
-  #   model_name: "gpt2"
-  #   # Pre-Trained weights to be loaded
-  #   model_weights: "gpt2"
-
-  #   # An optional path to a specific directory to download and cache the pre-trained model weights.
-  #   # The `default` cache_dir is the same as https://huggingface.co/transformers/serialization.html#cache-directory .
-  #   cache_dir: null
-  # when retrieving word vectors, this will decide if the casing
-  # of the word is relevant. E.g. `hello` and `Hello` will
-  # retrieve the same vector, if set to `False`. For some
-  # applications and models it makes sense to differentiate
-  # between these two words, therefore setting this to `True`.
-    # case_sensitive: False
   # - name: WhitespaceTokenizer
   - name: SpacyTokenizer
     "intent_tokenization_flag": False
@@ -50,7 +32,9 @@ pipeline:
     model_name: "gpt2"
     # Pre-Trained weights to be loaded
     model_weights: "gpt2"
-
+  - name: "ConveRTFeaturizer"
+# Remote URL/Local directory of model files(Required)
+    "model_url": "https://github.com/davidalami/ConveRT/releases/download/1.0/nocontext_tf_model.tar.gz"
     # An optional path to a directory from which
     # to load pre-trained model weights.
     # If the requested model is not found in the
@@ -68,7 +52,14 @@ pipeline:
   - name: DIETClassifier
     epochs: 200
     BILOU_flag: true
+    num_transformer_layers: 4
+    transformer_size: 256
     constrain_similarities: true
+    use_masked_language_model: True
+    batch_size: [64, 256]
+    embedding_dimension: 30
+    hidden_layer_sizes:
+      text: [512, 128]
   - name: "SpacyEntityExtractor"
   # dimensions to extract
     dimensions: ["PERSON", "LOC", "ORG", "PRODUCT", "GPE"]

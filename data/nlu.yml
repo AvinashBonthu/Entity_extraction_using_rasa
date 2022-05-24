@@ -67,6 +67,12 @@ nlu:
     - in which movie did [Rowan Atkinson]{"entity":"Person"} [act]{"entity": "edge", "value":"acted_in"}
     - who [acted in]{"entity": "edge", "value":"acted_in"} the movie [Avengers]{"entity":"Movie"}.
     - who [acted in]{"entity": "edge", "value":"acted_in"} the movie [avengers]{"entity":"Movie"}.
+    - [actors of]{"entity": "edge", "value":"acted_in"} [Charlie Bratlett]{"entity":"Movie"}
+    - [co-stars]{"entity": "edge", "value":"acted_in"} of movie [Charlie Bratlett]{"entity":"Movie"}
+    - who [acted in]{"entity": "edge", "value":"acted_in"} [Charlie Bratlett]{"entity":"Movie"}
+    - who [acted in]{"entity": "edge", "value":"acted_in"} movie [Charlie Bratlett]{"entity":"Movie"}
+    - who was the [actor in]{"entity": "edge", "value":"acted_in"} [Charlie Bratlett]{"entity":"Movie"}
+    - who were the [cast of]{"entity": "edge", "value":"acted_in"} [Charlie Bratlett]{"entity":"Movie"} 
 
 - intent: directed_by
   examples: |
@@ -87,6 +93,11 @@ nlu:
     - [director of]{"entity": "edge", "value":"directed"} [Avengers]{"entity":"Movie"}
     - who is the [director of]{"entity": "edge", "value":"directed"} [Notebook]{"entity":"Movie"}
     - who is the [director of]{"entity": "edge", "value":"directed"} [notebook]{"entity":"Movie"}
+    - who [directed]{"entity": "edge", "value":"directed"} [Charlie Bratlett]{"entity":"Movie"}
+    - [Director of]{"entity": "edge", "value":"directed"} [Charlie Bratlett]{"entity":"Movie"}
+    - [Charlie Bratlett]{"entity":"Movie"} is [directed by]{"entity": "edge", "value":"directed"}
+    - who is the [director of]{"entity": "edge", "value":"directed"} [Charlie Bratlett]{"entity":"Movie"}
+    - [Charlie Bratlett]{"entity":"Movie"} is [directed by]{"entity": "edge", "value":"directed"}
 
 - intent: produced_by
   examples: |
@@ -110,6 +121,13 @@ nlu:
     - who [produced]{"entity": "edge", "value":"produced"} [notebook]{"entity": "Movie"} movie
     - who is the [producer of]{"entity": "edge", "value":"produced"} the movie [Avengers]{"entity": "Movie"}
     - who is the [producer of]{"entity": "edge", "value":"produced"} the movie [avengers]{"entity": "Movie"}
+    - who [produced]{"entity": "edge", "value":"produced"} [Charlie Bratlett]{"entity":"Movie"}
+    - [producer of]{"entity": "edge", "value":"produced"} [Charlie Bratlett]{"entity":"Movie"}
+    - [Charlie Bratlett]{"entity":"Movie"} is [produced by]{"entity": "edge", "value":"produced"}
+    - who is the [producer of]{"entity": "edge", "value":"produced"} [Charlie Bratlett]{"entity":"Movie"}
+    - [Charlie Bratlett]{"entity":"Movie"} is [produced by]{"entity": "edge", "value":"produced"}
+    - who is the [producer of]{"entity": "edge", "value":"produced"} the movie [Charlie Bratlett]{"entity": "Movie"}
+    - who is the [producer of]{"entity": "edge", "value":"produced"} the movie [Charlie Bratlett]{"entity": "Movie"}
 
 - intent: reviewed
   examples: |
@@ -124,6 +142,13 @@ nlu:
     - who [reviewed]{"entity": "edge", "value":"reviewed"} the movie [Avengers]{"entity": "Movie"}
     - who is the [reviewer of]{"entity": "edge", "value":"reviewed"} the movie [Avengers]{"entity": "Movie"}
     - who [reviewed]{"entity": "edge", "value":"reviewed"} the movie [avengers]{"entity": "Movie"}
+    - who [reviewed]{"entity": "edge", "value":"reviewed"} [Charlie Bratlett]{"entity":"Movie"}
+    - [reviewers of]{"entity": "edge", "value":"reviewed"} [Charlie Bratlett]{"entity":"Movie"}
+    - [Charlie Bratlett]{"entity":"Movie"} is [reviewed by]{"entity": "edge", "value":"reviewed"}
+    - [Charlie Bratlett]{"entity":"Movie"} was [reviewed by]{"entity": "edge", "value":"reviewed"}
+    - who [reviewed]{"entity": "edge", "value":"reviewed"} the movie [Charlie Bratlett]{"entity":"Movie"}
+    - who is the [reviewer of]{"entity": "edge", "value":"reviewed"} [Charlie Bratlett]{"entity":"Movie"}
+    - [reviewer of]{"entity": "edge", "value":"reviewed"} [Charlie Bratlett]{"entity":"Movie"}
 
 - intent: follows
   examples: |
@@ -154,6 +179,14 @@ nlu:
     - [writer of]{"entity": "edge", "value":"wrote"} movie [avengers]{"entity": "Movie"}
     - who is the [writer of]{"entity": "edge", "value":"wrote"} the movie [Avengers]{"entity": "Movie"}
     - who is the [writer of]{"entity": "edge", "value":"wrote"} the movie [avengers]{"entity": "Movie"}
+    - who [wrote]{"entity": "edge", "value":"wrote"} [Charlie Bratlett]{"entity":"Movie"}
+    - [writer of]{"entity": "edge", "value":"wrote"} [Charlie Bratlett]{"entity":"Movie"}
+    - [writers of]{"entity": "edge", "value":"wrote"} [Charlie Bratlett]{"entity":"Movie"}
+    - [Charlie Bratlett]{"entity":"Movie"} was [written by]{"entity": "edge", "value":"wrote"}
+    - [Charlie Bratlett]{"entity":"Movie"} [written by]{"entity": "edge", "value":"wrote"}
+    - who is the [writer of]{"entity": "edge", "value":"wrote"} [Charlie Bratlett]{"entity":"Movie"}
+    - who is the [writer of]{"entity": "edge", "value":"wrote"} the movie [Charlie Bratlett]{"entity": "Movie"}
+    - who is the [writer of]{"entity": "edge", "value":"wrote"} the movie [Charlie Bratlett]{"entity": "Movie"}
 
 - intent: other_properties
   examples: |
